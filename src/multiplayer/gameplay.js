@@ -10,14 +10,11 @@ export default class Gameplay {
 		this.matchUsers = [];
 	}
 
-	moveTo(o) {
+	moveTo(const o) {
 		if (this.game.activeCreature.player.id != this.match.userTurn) {
 			return;
 		}
-		let data = o;
-		let id = this.match.matchData.match_id;
-		let opCode = '4';
-		this.match.sendMatchData({ match_id: id, op_code: opCode, data: data });
+		this.match.sendMatchData({ match_id: this.match.matchData.match_id, op_code: '4', data: o });
 		this.game.UI.active = true;
 	}
 	useAbility(o) {
