@@ -336,7 +336,12 @@ export class Ability {
 		const args = opt.arg;
 		const activateAbility = () => {
 			const extra = args[2];
-			this.activate(args[0], args[1], extra);
+			try{
+			  this?.activate(args[0], args[1], extra);
+			} catch{
+				
+			}
+			
 			this.postActivate();
 		};
 
